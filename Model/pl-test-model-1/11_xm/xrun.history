@@ -1,0 +1,2 @@
+#e1(08May2025:12:47:50): source ./xcelium.d/env.d/env.history.08May2025_12_47_50
+s1(08May2025:12:47:50):  xrun -access +rwc -f ./flist -svseed 1 

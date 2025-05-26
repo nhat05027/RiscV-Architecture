@@ -1,0 +1,613 @@
+Design Assistant report for singlecycle
+Thu Apr 10 22:05:12 2025
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. High Violations
+  5. Medium Violations
+  6. Information only Violations
+  7. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Thu Apr 10 22:05:12 2025 ;
+; Revision Name                     ; singlecycle                         ;
+; Top-level Entity Name             ; singlecycle                         ;
+; Family                            ; Cyclone II                          ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 32                                  ;
+; - Rule A108                       ; 32                                  ;
+; Total Medium Violations           ; 2                                   ;
+; - Rule C106                       ; 1                                   ;
+; - Rule R102                       ; 1                                   ;
+; Total Information only Violations ; 272                                 ;
+; - Rule T101                       ; 222                                 ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                                                                                                                                  ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Option                                                                                                                                                                                                                                                                               ; Setting        ; To ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Design Assistant mode                                                                                                                                                                                                                                                                ; Post-Synthesis ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                                                                                                                                        ; 25             ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                                                                                                                                    ; 30             ;    ;
+; Minimum number of node fan-out                                                                                                                                                                                                                                                       ; 30             ;    ;
+; Maximum number of nodes to report                                                                                                                                                                                                                                                    ; 50             ;    ;
+; Rule C101: Gated clock should be implemented according to the Altera standard scheme                                                                                                                                                                                                 ; On             ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                                                                                                                                        ; On             ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                                                                                                                                          ; On             ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                                                                                                                                   ; On             ;    ;
+; Rule C105: Clock signal should be a global signal (Rule applies during post-fitting analysis. This rule applies during both post-fitting analysis and post-synthesis analysis if the design targets a MAX 3000 or MAX 7000 device. For more information, see the Help for the rule.) ; On             ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                                                                                                                                         ; On             ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                                                                                                                                         ; On             ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                                                                                                                                ; On             ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                                                                                                                                    ; On             ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                                                                                                                                  ; On             ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                                                                                                                                            ; On             ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                                                                                                                                     ; On             ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                                                                                                                                             ; On             ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                                                                                                                                             ; On             ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                                                                                                                                           ; On             ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                                                                                                                                    ; On             ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                                                                                                                                         ; On             ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                                                                                                                                           ; On             ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                                                                                                                                         ; On             ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                                                                                                                                      ; On             ;    ;
+; Rule A108: Design should not contain latches                                                                                                                                                                                                                                         ; On             ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                                                                                                                                             ; On             ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                                                                                                                                ; On             ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                                                                                                                                              ; On             ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                                                                                                                                ; On             ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                                                                                                                                        ; On             ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain                                                                                                                 ; On             ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                                                                                                                                              ; On             ;    ;
+; Rule M101: Data bits are not synchronized when transferred to the state machine of asynchronous clock domains                                                                                                                                                                        ; Off            ;    ;
+; Rule M102: No reset signal defined to initialize the state machine                                                                                                                                                                                                                   ; Off            ;    ;
+; Rule M103: State machine should not contain an unreachable state                                                                                                                                                                                                                     ; Off            ;    ;
+; Rule M104: State machine should not contain a deadlock state                                                                                                                                                                                                                         ; Off            ;    ;
+; Rule M105: State machine should not contain a dead transition                                                                                                                                                                                                                        ; Off            ;    ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+
+
++--------------------------------------------------------------------------------------------+
+; High Violations                                                                            ;
++---------------------------------------------------------+----------------------------------+
+; Rule name                                               ; Name                             ;
++---------------------------------------------------------+----------------------------------+
+; Rule A108: Design should not contain latches - Latch 1  ;                                  ;
+;  Latch 1                                                ; datapath:DP|lsu:LS|o_ld_data[2]  ;
+; Rule A108: Design should not contain latches - Latch 2  ;                                  ;
+;  Latch 2                                                ; datapath:DP|lsu:LS|o_ld_data[1]  ;
+; Rule A108: Design should not contain latches - Latch 3  ;                                  ;
+;  Latch 3                                                ; datapath:DP|lsu:LS|o_ld_data[15] ;
+; Rule A108: Design should not contain latches - Latch 4  ;                                  ;
+;  Latch 4                                                ; datapath:DP|lsu:LS|o_ld_data[17] ;
+; Rule A108: Design should not contain latches - Latch 5  ;                                  ;
+;  Latch 5                                                ; datapath:DP|lsu:LS|o_ld_data[29] ;
+; Rule A108: Design should not contain latches - Latch 6  ;                                  ;
+;  Latch 6                                                ; datapath:DP|lsu:LS|o_ld_data[7]  ;
+; Rule A108: Design should not contain latches - Latch 7  ;                                  ;
+;  Latch 7                                                ; datapath:DP|lsu:LS|o_ld_data[27] ;
+; Rule A108: Design should not contain latches - Latch 8  ;                                  ;
+;  Latch 8                                                ; datapath:DP|lsu:LS|o_ld_data[0]  ;
+; Rule A108: Design should not contain latches - Latch 9  ;                                  ;
+;  Latch 9                                                ; datapath:DP|lsu:LS|o_ld_data[5]  ;
+; Rule A108: Design should not contain latches - Latch 10 ;                                  ;
+;  Latch 10                                               ; datapath:DP|lsu:LS|o_ld_data[10] ;
+; Rule A108: Design should not contain latches - Latch 11 ;                                  ;
+;  Latch 11                                               ; datapath:DP|lsu:LS|o_ld_data[14] ;
+; Rule A108: Design should not contain latches - Latch 12 ;                                  ;
+;  Latch 12                                               ; datapath:DP|lsu:LS|o_ld_data[6]  ;
+; Rule A108: Design should not contain latches - Latch 13 ;                                  ;
+;  Latch 13                                               ; datapath:DP|lsu:LS|o_ld_data[23] ;
+; Rule A108: Design should not contain latches - Latch 14 ;                                  ;
+;  Latch 14                                               ; datapath:DP|lsu:LS|o_ld_data[22] ;
+; Rule A108: Design should not contain latches - Latch 15 ;                                  ;
+;  Latch 15                                               ; datapath:DP|lsu:LS|o_ld_data[21] ;
+; Rule A108: Design should not contain latches - Latch 16 ;                                  ;
+;  Latch 16                                               ; datapath:DP|lsu:LS|o_ld_data[20] ;
+; Rule A108: Design should not contain latches - Latch 17 ;                                  ;
+;  Latch 17                                               ; datapath:DP|lsu:LS|o_ld_data[19] ;
+; Rule A108: Design should not contain latches - Latch 18 ;                                  ;
+;  Latch 18                                               ; datapath:DP|lsu:LS|o_ld_data[18] ;
+; Rule A108: Design should not contain latches - Latch 19 ;                                  ;
+;  Latch 19                                               ; datapath:DP|lsu:LS|o_ld_data[9]  ;
+; Rule A108: Design should not contain latches - Latch 20 ;                                  ;
+;  Latch 20                                               ; datapath:DP|lsu:LS|o_ld_data[8]  ;
+; Rule A108: Design should not contain latches - Latch 21 ;                                  ;
+;  Latch 21                                               ; datapath:DP|lsu:LS|o_ld_data[26] ;
+; Rule A108: Design should not contain latches - Latch 22 ;                                  ;
+;  Latch 22                                               ; datapath:DP|lsu:LS|o_ld_data[30] ;
+; Rule A108: Design should not contain latches - Latch 23 ;                                  ;
+;  Latch 23                                               ; datapath:DP|lsu:LS|o_ld_data[11] ;
+; Rule A108: Design should not contain latches - Latch 24 ;                                  ;
+;  Latch 24                                               ; datapath:DP|lsu:LS|o_ld_data[12] ;
+; Rule A108: Design should not contain latches - Latch 25 ;                                  ;
+;  Latch 25                                               ; datapath:DP|lsu:LS|o_ld_data[13] ;
+; Rule A108: Design should not contain latches - Latch 26 ;                                  ;
+;  Latch 26                                               ; datapath:DP|lsu:LS|o_ld_data[16] ;
+; Rule A108: Design should not contain latches - Latch 27 ;                                  ;
+;  Latch 27                                               ; datapath:DP|lsu:LS|o_ld_data[25] ;
+; Rule A108: Design should not contain latches - Latch 28 ;                                  ;
+;  Latch 28                                               ; datapath:DP|lsu:LS|o_ld_data[24] ;
+; Rule A108: Design should not contain latches - Latch 29 ;                                  ;
+;  Latch 29                                               ; datapath:DP|lsu:LS|o_ld_data[31] ;
+; Rule A108: Design should not contain latches - Latch 30 ;                                  ;
+;  Latch 30                                               ; datapath:DP|lsu:LS|o_ld_data[28] ;
+; Rule A108: Design should not contain latches - Latch 31 ;                                  ;
+;  Latch 31                                               ; datapath:DP|lsu:LS|o_ld_data[4]  ;
+; Rule A108: Design should not contain latches - Latch 32 ;                                  ;
+;  Latch 32                                               ; datapath:DP|lsu:LS|o_ld_data[3]  ;
++---------------------------------------------------------+----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Medium Violations                                                                                                                       ;
++----------------------------------------------------------------------------------------------+------------------------------------------+
+; Rule name                                                                                    ; Name                                     ;
++----------------------------------------------------------------------------------------------+------------------------------------------+
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges ; i_clk                                    ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[4]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[7]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[2]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[6]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[8]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[5]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[3]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|pc[9]                        ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|regfile:RF|regfile_mem~484   ;
+;  Positive edge destination node(s) list                                                      ; datapath:DP|regfile:RF|regfile_mem~676   ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_st_data_buffer[15]  ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_st_data_buffer[31]  ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_lsu_addr_buffer[25] ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_lsu_addr_buffer[26] ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_lsu_addr_buffer[27] ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_lsu_wren_buffer     ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_st_data_buffer[17]  ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_st_data_buffer[14]  ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_st_data_buffer[26]  ;
+;  Negative edge destination node(s) list                                                      ; datapath:DP|lsu:LS|i_st_data_buffer[8]   ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers        ; i_reset                                  ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[4]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[7]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[2]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[6]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[8]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[5]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[3]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[9]                        ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[16]                       ;
+;  Reset signal destination node(s) list                                                       ; datapath:DP|pc[10]                       ;
++----------------------------------------------------------------------------------------------+------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                            ;
++------------------------------------------------------------------+-------------------------------------------+---------+
+; Rule name                                                        ; Name                                      ; Fan-Out ;
++------------------------------------------------------------------+-------------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[4]                         ; 235     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux0~4                    ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[7]                         ; 214     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[2]                         ; 175     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|alu:AL|Mux91~12               ; 999     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux11~1                   ; 44      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[6]                         ; 287     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[6]~2                       ; 1018    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux10~4                   ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[8]                         ; 283     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[8]~4                       ; 1045    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux9~3                    ; 65      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[5]                         ; 300     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[5]~1                       ; 1032    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux7~2                    ; 57      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[3]                         ; 290     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|alu:AL|Mux90~6                ; 1038    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux12~20               ; 52      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[9]                         ; 184     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[9]~5                       ; 1001    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux12~7                   ; 47      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux29~19               ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|operand_b[4]~54               ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux7~22                ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2414   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_addr_buffer[4]  ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux4~4                    ; 69      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; i_clk~clkctrl                             ; 9860    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|comb~0             ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; i_reset                                   ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[4]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux14~0                   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux15~1                   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[4]~0                       ; 1032    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2403   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux16~21               ; 241     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2411   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux15~21               ; 241     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2406   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2399   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2409   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2408   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2401   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux13~20               ; 241     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2412   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2405   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2404   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2413   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux14~21               ; 241     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2402   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2407   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2400   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2410   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2398   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2371   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2375   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2392   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2379   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2388   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2381   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2385   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2394   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2373   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2396   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2369   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2383   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2387   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2390   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|regfile_mem~2377   ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|operand_b[3]~53               ; 61      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[3]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Selector0~0clkctrl     ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|operand_b[2]~52               ; 76      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[2]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[460][3]~7867     ; 562     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer[0][7]~64     ; 204     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux13~1                   ; 63      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|alu:AL|Mux92~5                ; 42      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|operand_b[1]~51               ; 82      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[1]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[15]~11                     ; 123     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[15] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[28] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[17] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[342][28]~1469    ; 354     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[428][31]~148     ; 82      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux16~18                  ; 1588    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux17~16                  ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Selector26~2           ; 100     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder1~1             ; 55      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[337][11]~149     ; 429     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_lsu_addr_buffer[28]  ; 59      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; control_unit:CU|Mux8~4                    ; 79      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux10~20               ; 242     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux9~25                ; 242     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux8~25                ; 242     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Mux11~25               ; 243     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|alu:AL|sign_bit_sra           ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[31] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[29] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~96            ; 56      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~34            ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[7]~3                       ; 1019    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[7]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Equal3~0               ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[27] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer[0][0]~69     ; 59      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|operand_b[0]~22               ; 79      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[0]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[24]   ; 207     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[24] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[25] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[5]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[5]    ; 277     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~32            ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~28            ; 58      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~31            ; 66      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~72            ; 55      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~5             ; 59      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~47            ; 59      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~27            ; 61      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~24            ; 61      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~21            ; 60      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~22            ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~9             ; 60      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~8             ; 67      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~6             ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~1             ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~19            ; 67      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~17            ; 61      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~14            ; 65      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~10            ; 61      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~93            ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~64            ; 50      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~4             ; 57      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~41            ; 56      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~70            ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~46            ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~78            ; 49      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~52            ; 57      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~38            ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~0             ; 52      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~81            ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~84            ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~40            ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~80            ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~86            ; 55      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~57            ; 52      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[361][3]~7866     ; 118     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~36            ; 50      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder2~3             ; 61      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[29]   ; 182     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~94           ; 181     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[13] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[13]~9                      ; 123     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[12]~8                      ; 123     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[10] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[428][31]~146     ; 76      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|Decoder1~0             ; 51      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~74           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[2]    ; 277     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|pc[14]~10                     ; 123     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[14] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~78           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[6]    ; 277     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[6]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[30]   ; 199     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[30] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[26] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[23] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[338][16]~147     ; 203     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~87           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[7]    ; 278     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[22] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~86           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[353][20]~7865    ; 560     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[21] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~85           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[20] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~84           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[4]    ; 276     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[19] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~83           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[3]    ; 277     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[18] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~82           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[9]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~73           ; 270     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[1]    ; 278     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem[342][12]~1019    ; 717     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[25]   ; 169     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~90           ; 168     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7921             ; 82      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[8]  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~71           ; 269     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[0]    ; 278     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~88           ; 206     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[26]   ; 189     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~91           ; 188     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7926             ; 79      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~95           ; 198     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7928             ; 72      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[11] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~75           ; 258     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[27]   ; 213     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~92           ; 212     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7925             ; 60      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[12] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~76           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[28]   ; 181     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~93           ; 180     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7936             ; 92      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~77           ; 267     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7929             ; 91      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|regfile:RF|rd_data_buffer[16] ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~80           ; 272     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7869             ; 63      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|i_st_data_buffer[31]   ; 168     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~96           ; 166     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~79           ; 267     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|d_mem~7927             ; 105     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; datapath:DP|lsu:LS|io_buffer~81           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i_clk~clkctrl                             ; 9860    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; control_unit:CU|Mux16~18                  ; 1588    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[8]~4                       ; 1045    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|alu:AL|Mux90~6                ; 1038    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[4]~0                       ; 1032    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[5]~1                       ; 1032    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[7]~3                       ; 1019    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[6]~2                       ; 1018    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[9]~5                       ; 1001    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|alu:AL|Mux91~12               ; 999     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|d_mem[342][12]~1019    ; 717     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|d_mem[460][3]~7867     ; 562     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|d_mem[353][20]~7865    ; 560     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|d_mem[337][11]~149     ; 429     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|d_mem[342][28]~1469    ; 354     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[5]                         ; 300     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[3]                         ; 290     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[6]                         ; 287     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|pc[8]                         ; 283     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[0]    ; 278     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[1]    ; 278     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[7]    ; 278     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[5]    ; 277     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[3]    ; 277     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[2]    ; 277     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[6]    ; 277     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|i_st_data_buffer[4]    ; 276     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~81           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~87           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~80           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~76           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~83           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~74           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~82           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~86           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~78           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~84           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~85           ; 272     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~73           ; 270     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~71           ; 269     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~79           ; 267     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~77           ; 267     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|io_buffer~75           ; 258     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux11~25               ; 243     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux10~20               ; 242     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux9~25                ; 242     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux8~25                ; 242     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux15~21               ; 241     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux13~20               ; 241     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; datapath:DP|lsu:LS|Mux14~21               ; 241     ;
++------------------------------------------------------------------+-------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Design Assistant
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Apr 10 22:05:07 2025
+Info: Command: quartus_drc --read_settings_files=on --write_settings_files=off singlecycle -c singlecycle
+Warning (335093): TimeQuest Timing Analyzer is analyzing 32 combinational loops as latches.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'singlecycle.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Critical Warning (308055): (High) Rule A108: Design should not contain latches. Found 32 latch(es) related to this rule.
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[2]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[1]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[15]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[17]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[29]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[7]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[27]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[0]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[5]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[10]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[14]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[6]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[23]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[22]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[21]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[20]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[19]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[18]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[9]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[8]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[26]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[30]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[11]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[12]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[13]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[16]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[25]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[24]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[31]"
+    Critical Warning (308012): Node  "datapath:DP|lsu:LS|o_ld_data[28]"
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Warning (308022): (Medium) Rule C106: Clock signal source should not drive registers triggered by different clock edges. Found 1 node(s) related to this rule.
+    Warning (308010): Node  "i_clk"
+Warning (308023): (Medium) Rule R102: External reset signals should be synchronized using two cascaded registers. Found 1 node(s) related to this rule.
+    Warning (308010): Node  "i_reset"
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 222 node(s) with highest fan-out.
+    Info (308011): Node  "datapath:DP|pc[4]"
+    Info (308011): Node  "control_unit:CU|Mux0~4"
+    Info (308011): Node  "datapath:DP|pc[7]"
+    Info (308011): Node  "datapath:DP|pc[2]"
+    Info (308011): Node  "datapath:DP|alu:AL|Mux91~12"
+    Info (308011): Node  "control_unit:CU|Mux11~1"
+    Info (308011): Node  "datapath:DP|pc[6]"
+    Info (308011): Node  "datapath:DP|pc[6]~2"
+    Info (308011): Node  "control_unit:CU|Mux10~4"
+    Info (308011): Node  "datapath:DP|pc[8]"
+    Info (308011): Node  "datapath:DP|pc[8]~4"
+    Info (308011): Node  "control_unit:CU|Mux9~3"
+    Info (308011): Node  "datapath:DP|pc[5]"
+    Info (308011): Node  "datapath:DP|pc[5]~1"
+    Info (308011): Node  "control_unit:CU|Mux7~2"
+    Info (308011): Node  "datapath:DP|pc[3]"
+    Info (308011): Node  "datapath:DP|alu:AL|Mux90~6"
+    Info (308011): Node  "datapath:DP|lsu:LS|Mux12~20"
+    Info (308011): Node  "datapath:DP|pc[9]"
+    Info (308011): Node  "datapath:DP|pc[9]~5"
+    Info (308011): Node  "control_unit:CU|Mux12~7"
+    Info (308011): Node  "datapath:DP|lsu:LS|Mux29~19"
+    Info (308011): Node  "datapath:DP|operand_b[4]~54"
+    Info (308011): Node  "datapath:DP|lsu:LS|Mux7~22"
+    Info (308011): Node  "datapath:DP|regfile:RF|regfile_mem~2414"
+    Info (308011): Node  "datapath:DP|regfile:RF|rd_addr_buffer[4]"
+    Info (308011): Node  "control_unit:CU|Mux4~4"
+    Info (308011): Node  "i_clk~clkctrl"
+    Info (308011): Node  "datapath:DP|regfile:RF|comb~0"
+    Info (308011): Node  "i_reset"
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "i_clk~clkctrl"
+    Info (308011): Node  "control_unit:CU|Mux16~18"
+    Info (308011): Node  "datapath:DP|pc[8]~4"
+    Info (308011): Node  "datapath:DP|alu:AL|Mux90~6"
+    Info (308011): Node  "datapath:DP|pc[4]~0"
+    Info (308011): Node  "datapath:DP|pc[5]~1"
+    Info (308011): Node  "datapath:DP|pc[7]~3"
+    Info (308011): Node  "datapath:DP|pc[6]~2"
+    Info (308011): Node  "datapath:DP|pc[9]~5"
+    Info (308011): Node  "datapath:DP|alu:AL|Mux91~12"
+    Info (308011): Node  "datapath:DP|lsu:LS|d_mem[342][12]~1019"
+    Info (308011): Node  "datapath:DP|lsu:LS|d_mem[460][3]~7867"
+    Info (308011): Node  "datapath:DP|lsu:LS|d_mem[353][20]~7865"
+    Info (308011): Node  "datapath:DP|lsu:LS|d_mem[337][11]~149"
+    Info (308011): Node  "datapath:DP|lsu:LS|d_mem[342][28]~1469"
+    Info (308011): Node  "datapath:DP|pc[5]"
+    Info (308011): Node  "datapath:DP|pc[3]"
+    Info (308011): Node  "datapath:DP|pc[6]"
+    Info (308011): Node  "datapath:DP|pc[8]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[0]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[1]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[7]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[5]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[3]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[2]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[6]"
+    Info (308011): Node  "datapath:DP|lsu:LS|i_st_data_buffer[4]"
+    Info (308011): Node  "datapath:DP|lsu:LS|io_buffer~81"
+    Info (308011): Node  "datapath:DP|lsu:LS|io_buffer~87"
+    Info (308011): Node  "datapath:DP|lsu:LS|io_buffer~80"
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308006): Design Assistant information: finished post-synthesis analysis of current design -- generated 272 information messages and 34 warning messages
+Info: Quartus II 64-Bit Design Assistant was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 4738 megabytes
+    Info: Processing ended: Thu Apr 10 22:05:12 2025
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
+
+

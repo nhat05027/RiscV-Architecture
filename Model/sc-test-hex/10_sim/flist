@@ -1,0 +1,18 @@
+-I./../00_src/
+
+#insert your files here as: ./../00_src/<filename>.sv
+./../00_src/regfile.sv
+./../00_src/alu.sv
+./../00_src/brc.sv
+./../00_src/control_unit.sv
+./../00_src/datapath.sv
+./../00_src/lsu.sv
+./../00_src/immgen.sv
+./../00_src/singlecycle.sv
+
+./../01_bench/tlib.svh
+./../01_bench/driver.sv
+./../01_bench/scoreboard.sv
+./../01_bench/tbench.sv
+./conf.vlt
+-top tbench

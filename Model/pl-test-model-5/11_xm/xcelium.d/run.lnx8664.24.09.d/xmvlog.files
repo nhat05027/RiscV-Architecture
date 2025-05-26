@@ -1,0 +1,20 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/cpa/ca104/pl-test-model-5/00_src/regfile.sv
+/home/cpa/ca104/pl-test-model-5/00_src/alu.sv
+/home/cpa/ca104/pl-test-model-5/00_src/brc.sv
+/home/cpa/ca104/pl-test-model-5/00_src/control_unit.sv
+/home/cpa/ca104/pl-test-model-5/00_src/hazard_detection.sv
+/home/cpa/ca104/pl-test-model-5/00_src/pipeline_register.sv
+/home/cpa/ca104/pl-test-model-5/00_src/lsu.sv
+/home/cpa/ca104/pl-test-model-5/00_src/immgen.sv
+/home/cpa/ca104/pl-test-model-5/00_src/forwarding_unit.sv
+/home/cpa/ca104/pl-test-model-5/00_src/pipelined.sv
+/home/cpa/ca104/pl-test-model-5/00_src/branch_control.sv
+/home/cpa/ca104/pl-test-model-5/00_src/branch_predictor_2bit.sv
+/home/cpa/ca104/pl-test-model-5/01_bench/tlib.svh
+/home/cpa/ca104/pl-test-model-5/01_bench/driver.sv
+/home/cpa/ca104/pl-test-model-5/01_bench/scoreboard.sv
+/home/cpa/ca104/pl-test-model-5/01_bench/tbench.sv

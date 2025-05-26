@@ -1,0 +1,12 @@
+/opt/cadence/XCELIUM2309/tools.lnx86/inca/bin/64bit/xmelab
+Obtained 10 stack frames.
+/opt/cadence/XCELIUM2309/tools.lnx86/inca/bin/64bit/../../../lib/64bit/libcbreakpad.so(_Z13use_backtracev+0x9d) [0x7fffff2b21a3]
+/opt/cadence/XCELIUM2309/tools.lnx86/inca/bin/64bit/../../../lib/64bit/libcbreakpad.so(cbpad_generate_dump_on_demand+0x66) [0x7fffff2b2630]
+xmelab() [0x2842749]
+xmelab(serror+0x95) [0x28444f5]
+xmelab() [0xd37a50]
+xmelab() [0xc5d33b]
+xmelab(main+0x10) [0x9db850]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a) [0x7fffff31c24a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85) [0x7fffff31c305]
+xmelab() [0x9db880]

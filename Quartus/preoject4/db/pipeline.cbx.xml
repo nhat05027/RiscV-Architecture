@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="pipeline">
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined|lsu:LS|bram:bramm|altsyncram:d_mem_rtl_0" CBX_FILE_NAME="altsyncram_r1h1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined|lsu:LS|bram:bramm|altsyncram:d_mem_rtl_1" CBX_FILE_NAME="altsyncram_2hi1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined|regfile:RF|altsyncram:regfile_mem_rtl_0" CBX_FILE_NAME="altsyncram_22h1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined|regfile:RF|altsyncram:regfile_mem_rtl_1" CBX_FILE_NAME="altsyncram_22h1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

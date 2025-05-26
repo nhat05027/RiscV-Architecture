@@ -1,0 +1,16 @@
+1746175616 /home/cpa/ca104/pl-test-model-4/00_src/regfile.sv
+1744437880 /home/cpa/ca104/pl-test-model-4/00_src/alu.sv
+1746249830 /home/cpa/ca104/pl-test-model-4/00_src/brc.sv
+1746514707 /home/cpa/ca104/pl-test-model-4/00_src/control_unit.sv
+1746514273 /home/cpa/ca104/pl-test-model-4/00_src/hazard_detection.sv
+1746249836 /home/cpa/ca104/pl-test-model-4/00_src/pipeline_register.sv
+1746684016 /home/cpa/ca104/pl-test-model-4/00_src/lsu.sv
+1744437247 /home/cpa/ca104/pl-test-model-4/00_src/immgen.sv
+1746514776 /home/cpa/ca104/pl-test-model-4/00_src/forwarding_unit.sv
+1746680924 /home/cpa/ca104/pl-test-model-4/00_src/pipelined.sv
+1746625823 /home/cpa/ca104/pl-test-model-4/00_src/branch_control.sv
+1746623658 /home/cpa/ca104/pl-test-model-4/00_src/branch_predictor_2bit.sv
+1746240267 /home/cpa/ca104/pl-test-model-4/01_bench/tlib.svh
+1745218252 /home/cpa/ca104/pl-test-model-4/01_bench/driver.sv
+1746625213 /home/cpa/ca104/pl-test-model-4/01_bench/scoreboard.sv
+1746242832 /home/cpa/ca104/pl-test-model-4/01_bench/tbench.sv

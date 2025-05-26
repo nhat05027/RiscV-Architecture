@@ -1,0 +1,12 @@
+`verilator_config
+lint_off -file "../00_src/../01_bench/driver.sv"
+lint_off -file "../00_src/../01_bench/scoreboard.sv"
+lint_off -file "../00_src/../01_bench/tbench.sv"
+lint_off -file "../00_src/singlecycle.sv"
+lint_off -file "../00_src/control_unit.sv"
+lint_off -file "../00_src/datapath.sv"
+lint_off -file "../00_src/alu.sv"
+lint_off -file "../00_src/lsu.sv"
+lint_off -file "../00_src/immgen.sv"
+lint_off -file "../00_src/brc.sv"
+lint_off -file "../00_src/regfile.sv"

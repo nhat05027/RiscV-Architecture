@@ -1,0 +1,18 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/cpa/ca104/sc-test-hex/00_src/regfile.sv
+/home/cpa/ca104/sc-test-hex/00_src/alu.sv
+/home/cpa/ca104/sc-test-hex/00_src/brc.sv
+/home/cpa/ca104/sc-test-hex/00_src/control_unit.sv
+/home/cpa/ca104/sc-test-hex/00_src/datapath.sv
+/home/cpa/ca104/sc-test-hex/00_src/lsu.sv
+/home/cpa/ca104/sc-test-hex/00_src/immgen.sv
+/home/cpa/ca104/sc-test-hex/00_src/singlecycle.sv
+/home/cpa/ca104/sc-test-hex/01_bench/tlib.svh
+/home/cpa/ca104/sc-test-hex/01_bench/driver.sv
+/home/cpa/ca104/sc-test-hex/01_bench/scoreboard.sv
+/home/cpa/ca104/sc-test-hex/01_bench/hextest.sv
+/home/cpa/ca104/sc-test-hex/01_bench/tbench.sv
+/home/cpa/ca104/sc-test-hex/01_bench/tb_singlecycle.sv
